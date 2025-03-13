@@ -1,0 +1,5 @@
+extend type Mutation{
+    createEntree(input: EntreeInput): Entree
+    updateEntree(id: ID!, input: EntreeInput): Entree
+    deleteEntree(id: ID!): Entree
+}

@@ -1,0 +1,5 @@
+extend type Mutation{
+  createServiceClass(nom: String, divisionId: ID!): ServiceClass
+  updateServiceClass(id: ID!, nom: String, divisionId: ID): ServiceClass
+  deleteServiceClass(id: ID!): ServiceClass
+}

@@ -1,0 +1,14 @@
+type Sortie{
+	id: ID!
+	dateTimeSortie: String
+	motif: String
+	fonctionnaire: Fonctionnaire
+	detailSorties: [DetailSortie]
+}
+
+input SortieInput {
+  dateTimeSortie: String!
+  motif: String!
+  fonctionnaireId: ID!
+  details: [DetailSortieInput!]!
+}

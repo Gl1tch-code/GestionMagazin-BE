@@ -1,0 +1,10 @@
+extend type Query{
+  getAllPartenaires: [Partenaire]
+  getPartenaireById(id: ID!): Partenaire 
+  getPartenaireByNom(nom: String!): [Partenaire]
+  getPartenaireByIce(ice: String!): [Partenaire]
+  getPartenaireByAdresse(adresse: String!): [Partenaire]
+  getPartenaireByTelephone(telephone: String!): [Partenaire]
+  getPartenaireBySoldePlafond(soldePlafond: Float!): [Partenaire]
+  getPartenaireByObservation(observation: String!): [Partenaire]
+}

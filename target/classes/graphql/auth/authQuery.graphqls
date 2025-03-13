@@ -1,0 +1,4 @@
+extend type Query{
+    adminLogin(username: String!, password: String!): Admin
+    utilisateurLogin(username: String!, password: String!): Utilisateur
+}

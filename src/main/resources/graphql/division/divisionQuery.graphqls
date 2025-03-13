@@ -1,0 +1,5 @@
+extend type Query{
+	getAllDivisions: [Division]
+	getDivisionById(id: ID!): Division
+	getDivisionByNom(nom: String!): [Division]
+}

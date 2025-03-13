@@ -1,0 +1,11 @@
+extend type Query{
+  getAllEntrees: [Entree]
+  getEntreeById(id: ID!): Entree
+  getEntreeByNumeroBand(numeroBand: String!): [Entree]
+  getEntreeByDateTimeEntree(dateTimeEntree: String!): [Entree]
+  getEntreeByTotalHt(prixTotal: Float!): [Entree]
+  getEntreeByTotalTva(tva: Float!): [Entree]
+  getEntreeByTotalTtc(prixTtc: Float!): [Entree]
+  getEntreeByDesignation(designation: String!): [Entree]
+  getSumQuantiteEntreeThisWeek: Float
+}

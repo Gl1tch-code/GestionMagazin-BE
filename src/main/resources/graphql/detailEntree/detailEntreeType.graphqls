@@ -1,0 +1,16 @@
+type DetailEntree{
+    id: ID!
+    prixUnitaire: Float
+	quantite: Int
+	filePathBand: String
+	tva: Float
+	entree: Entree
+	article: Article
+}
+input DetailEntreeInput {
+    prixUnitaire: Float
+    filePathBand: String
+    quantite: Int
+    tva: Float
+    articleId: ID!
+}

@@ -1,0 +1,21 @@
+type Article{
+    id: ID!
+	nom: String
+	designation: String
+	unite: String
+	dateAjout: String
+	categorieArticle: CategorieArticle
+	detailSorties: [DetailSortie]
+	detailEntrees: [DetailEntree]
+}
+
+type GetArticlesDTO {
+    id: ID
+    nom: String
+    designation: String
+    unite: String
+    dateAjout: String
+    quantite: Int
+    categorieNom: String
+    categorieId: Int
+}

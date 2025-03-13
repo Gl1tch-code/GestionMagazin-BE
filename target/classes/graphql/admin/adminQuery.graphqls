@@ -1,0 +1,10 @@
+extend type Query{
+    getAllAdmins: [Admin]
+    getAdminById(id: ID!): Admin
+    getAdminByNom(nom: String!): [Admin]
+    getAdminByPrenom(prenom: String!): [Admin]
+    getAdminByEmail(email: String!): [Admin]
+    getAdminByTelephone(telephone: String!): [Admin]
+    getAdminByUsername(username: String!): [Admin]
+    getAdminByPassword(password: String!): [Admin]
+}

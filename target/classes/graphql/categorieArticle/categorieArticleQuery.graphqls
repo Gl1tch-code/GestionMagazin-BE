@@ -1,0 +1,5 @@
+extend type Query{
+	getAllCategorieArticles: [CategorieArticle]
+	getCategorieArticleById(id: ID!): Article
+	getCategorieArticleByNom(nom: String!): [Article]
+}

@@ -1,0 +1,15 @@
+type DetailSortie{
+	id: ID!
+	quantite: Int
+	filePathBand: String
+	tva: Float
+	sortie: Sortie
+	article: Article
+}
+
+input DetailSortieInput {
+  quantite: Int!
+  filePathBand: String
+  tva: Float
+  articleId: ID!
+}

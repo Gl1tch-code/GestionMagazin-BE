@@ -1,0 +1,6 @@
+extend type Query{
+    getAllUtilisateurs: [Utilisateur]
+    getUtilisateurById(id: ID!): Utilisateur
+    getUtilisateurByUsername(username: String!): [Utilisateur]
+    getUtilisateurByPassword(password: String!): [Utilisateur]
+}

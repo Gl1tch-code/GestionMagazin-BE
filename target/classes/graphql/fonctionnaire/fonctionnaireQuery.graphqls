@@ -1,0 +1,7 @@
+extend type Query{
+  getAllFonctionnaires: [Fonctionnaire]
+  getFonctionnaireById(id: ID!): Fonctionnaire
+  getFonctionnaireByNom(nom: String!): [Fonctionnaire]
+  getFonctionnaireByPrenom(prenom: String!): [Fonctionnaire]
+  getFonctionnaireBygrade(grade: String!): [Fonctionnaire]
+}
