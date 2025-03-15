@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.gestionmagasin.core.File.FileEntity;
+import com.gestionmagasin.core.File.FileRepository;
+import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -27,6 +30,9 @@ public class EntreeService implements EntreeServiceImplementation {
 
 	@Autowired
     private EntreeRepository entreeRepository;
+
+    @Autowired
+    private FileRepository fileRepository;
 
     @Autowired
     private DetailEntreeRepository detailEntreeRepository;
@@ -106,7 +112,7 @@ public class EntreeService implements EntreeServiceImplementation {
             entree.setPartenaire(partenaire);
         }
 
-        entree = entreeRepository.save(entree);
+        Entree finalEntree = entreeRepository.save(entree);
 
         List<DetailEntree> detailEntrees = new ArrayList<>();
         for (DetailEntreeInput detailInput : entreeInput.details()) {
@@ -114,7 +120,7 @@ public class EntreeService implements EntreeServiceImplementation {
             detail.setPrixUnitaire(detailInput.prixUnitaire());
             detail.setQuantite(detailInput.quantite());
             detail.setTva(detailInput.tva());
-            detail.setEntree(entree);  // Link the detail to the entree
+            detail.setEntree(finalEntree);  // Link the detail to the entree
 
             if (detailInput.articleId() != null) {
                 Article article = articleRepository.findById(detailInput.articleId())
@@ -125,12 +131,26 @@ public class EntreeService implements EntreeServiceImplementation {
             detailEntrees.add(detail);
         }
 
-        entree.setDetailEntrees(detailEntrees);
+        finalEntree.setDetailEntrees(detailEntrees);
 
         detailEntreeRepository.saveAll(detailEntrees);
 
-        return entree;
+        if (!entreeInput.filesIds().isEmpty()) {
+            entreeInput.filesIds().forEach(id -> {
+                if (id != null) {
+                    Long longId = Long.parseLong(id);
+                    Optional<FileEntity> currentFile = fileRepository.findById(longId);
+                    if (currentFile.isPresent()) {
+                        currentFile.get().setEntree(finalEntree);
+                        finalEntree.addFile(currentFile.get());
+                    }
+                }
+            });
+        }
+
+        return finalEntree;
     }
+
     @Override
     @Transactional
     public Entree update(Long id,EntreeInput entreeInput) {

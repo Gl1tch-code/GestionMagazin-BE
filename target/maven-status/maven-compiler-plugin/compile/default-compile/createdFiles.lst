@@ -4,6 +4,7 @@ com\gestionmagasin\core\Service\ServiceClassService.class
 com\gestionmagasin\core\Sortie\SortieController.class
 com\gestionmagasin\core\Partenaire\PartenaireController.class
 com\gestionmagasin\core\Admin\AdminRepository.class
+com\gestionmagasin\core\File\FileController.class
 com\gestionmagasin\core\DTO\GetArticlesStockFaible.class
 com\gestionmagasin\core\Utilisateur\Utilisateur.class
 com\gestionmagasin\core\DTO\GetTotalConsommation.class
@@ -50,6 +51,8 @@ com\gestionmagasin\core\Entree\EntreeRepository.class
 com\gestionmagasin\core\Article\ArticleServiceImplementation.class
 com\gestionmagasin\core\Article\ArticleService.class
 com\gestionmagasin\core\DetailSortie\DetailSortieController.class
+com\gestionmagasin\core\File\FileService.class
+com\gestionmagasin\core\File\FileEntity.class
 com\gestionmagasin\core\Division\DivisionServiceImplementation.class
 com\gestionmagasin\core\Admin\Admin.class
 com\gestionmagasin\core\INPUT\EntreeInput.class
@@ -62,6 +65,7 @@ com\gestionmagasin\core\Service\ServiceClassRepository.class
 com\gestionmagasin\core\Fonctionnaire\Fonctionnaire.class
 com\gestionmagasin\core\DetailSortie\DetailSortieRepository.class
 com\gestionmagasin\core\CatégorieArticle\CategorieArticleRepository.class
+com\gestionmagasin\core\File\FileRepository.class
 com\gestionmagasin\core\Division\DivisionService.class
 com\gestionmagasin\core\Utilisateur\UtilisateurServiceImplementation.class
 com\gestionmagasin\core\Utilisateur\UtilisateurRepository.class

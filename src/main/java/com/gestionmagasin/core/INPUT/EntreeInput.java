@@ -12,5 +12,6 @@ public record EntreeInput(
 	    Double totalTva,
 	    Double totalTtc,
 	    Long partenaireId, // Reference to Partenaire
-	    List<DetailEntreeInput> details) 
+	    List<DetailEntreeInput> details,
+		List<String> filesIds)
 {}
