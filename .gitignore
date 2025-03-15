@@ -1,4 +1,5 @@
 /.git
 /.vscode
 /.metadata
-/target
+target/
+target/*
