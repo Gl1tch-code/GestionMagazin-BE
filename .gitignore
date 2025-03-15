@@ -4,4 +4,4 @@
 target/
 target/*
 /target
-src/main/resources/application-local.properities
+src/main/resources/application-local.properties
