@@ -1,6 +1,0 @@
-extend type Mutation{
-	createDetailSortie(quantite: Int, filePathBand: String, tva: Float, sortieId: ID!, articleId: ID!): DetailSortie
-	updateDetailSortie(id:ID!, quantite: Int, filePathBand: String, tva: Float, sortieId: ID, articleId: ID): DetailSortie
-	deleteDetailSortie(id:ID!): DetailSortie
-
-}

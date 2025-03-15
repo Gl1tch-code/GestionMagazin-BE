@@ -1,7 +1,0 @@
-extend type Query{
-	getAllDetailSorties: [DetailSortie]
-	getDetailSortieById(id: ID!): DetailSortie
-	getDetailSortieByQuantite(quantite: Int!): [DetailSortie]
-	getDetailSortieByFilePathband(filePathBand: String!): [DetailSortie]
-	getDetailSortieByTva(tva: Float!): [DetailSortie]	
-}

@@ -1,5 +1,0 @@
-extend type Mutation{
-	createArticle(nom: String, designation: String, unite: String, dateAjout: String, categorieArticleId: ID!): Article
-	updateArticle(id: ID!, nom: String, designation: String, unite: String, dateAjout: String, categorieArticleId: ID): Article
-	deleteArticle(id: ID!): Article
-}

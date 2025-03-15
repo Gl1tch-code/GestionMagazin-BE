@@ -1,8 +1,0 @@
-extend type Query{
-	getAllDetailEntrees: [DetailEntree]
-	getDetailEntreeById(id: ID!): DetailEntree
-	getDetailEntreeByQuantite(quantite: Int!): [DetailEntree]
-	getDetailEntreeByFilePathband(filePathBand: String!): [DetailEntree]
-	getDetailEntreeByTva(tva: Float!): [DetailEntree]
-	getDetailEntreeByPrixUnitaire(prixUnitaire: Float!): [DetailEntree]
-}

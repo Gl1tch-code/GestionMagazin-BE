@@ -1,5 +1,0 @@
-type CategorieArticle{
-	id: ID!
-	nom: String
-	articles: [Article]
-}

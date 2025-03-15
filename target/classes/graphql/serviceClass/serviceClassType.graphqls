@@ -1,6 +1,0 @@
-type ServiceClass{
-    id: ID!
-    nom: String
-    division: Division
-    fonctionnaires: [Fonctionnaire]
-}

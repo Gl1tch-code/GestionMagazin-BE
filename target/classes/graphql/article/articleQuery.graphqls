@@ -1,9 +1,0 @@
-extend type Query{
-	getAllArticles:[Article]
-	getArticleById(id: ID!): Article
-	getArticleByNom(nom: String!): [Article]
-	getArticleByDesignation(designation: String!): [Article]
-	getArticleByUnite(unite: String!): [Article]
-	getArticleByDateAjout(dateAjout: String!): [Article]
-	getArticlesDTO: [GetArticlesDTO]
-}

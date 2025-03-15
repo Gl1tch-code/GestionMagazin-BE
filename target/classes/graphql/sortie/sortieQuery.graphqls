@@ -1,7 +1,0 @@
-extend type Query{
-  getAllSorties: [Sortie]
-  getSortieById(id: ID!): Sortie
-  getSortieByDateTimeSortie(dateTimeSortie: String!): [Sortie]
-  getSortieByMotif(motif: String!): [Sortie]
-  getSumQuantiteSortieThisWeek: Float
-}
