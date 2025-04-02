@@ -36,9 +36,9 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	    """, nativeQuery = true)
 	    List<Object[]> findArticlesDTO();
 	    
-
+	    
 	   /* @Query(value = """
-	            SELECT
+	            SELECT 
 	            a.id,
 	            a.nom,
 	            a.designation,
@@ -46,7 +46,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	            a.date_Ajout,
 	            c.nom AS categorie_nom,
 	            c.id AS categorie_id,
-	            COALESCE(SUM(de.quantite), 0) AS total_entree,
+	            COALESCE(SUM(de.quantite), 0) AS total_entree, 
 	            COALESCE(SUM(ds.quantite), 0) AS total_sortie,
 	            (COALESCE(SUM(de.quantite), 0) - COALESCE(SUM(ds.quantite), 0)) AS stock_final
 	        FROM article a
@@ -60,7 +60,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	    List<Object[]> findArticlesDTOByCategorie(@Param("categorieId") Long categorieId);
 
 	    @Query(value = """
-	    	    SELECT
+	    	    SELECT 
 	    	        a.id,
 	    	        a.nom,
 	    	        a.designation,
@@ -68,7 +68,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	    	        a.date_Ajout,
 	    	        c.nom AS categorie_nom,
 	    	        c.id AS categorie_id,
-	    	        COALESCE(SUM(de.quantite), 0) AS total_entree,
+	    	        COALESCE(SUM(de.quantite), 0) AS total_entree, 
 	    	        COALESCE(SUM(ds.quantite), 0) AS total_sortie,
 	    	        (COALESCE(SUM(de.quantite), 0) - COALESCE(SUM(ds.quantite), 0)) AS stock_final
 	    	    FROM article a
@@ -80,7 +80,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	    	    ORDER BY a.date_Ajout DESC
 	    	    """, nativeQuery = true)
 	    	List<Object[]> findArticlesDTOByCategorie(@Param("categorieId") Long categorieId);*/
-
+	    
 	    @Query(value = """
 	    	    SELECT 
 	    	        a.id,
@@ -107,6 +107,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	    	    @Param("startDate") LocalDateTime startDate,
 	    	    @Param("endDate") LocalDateTime endDate
 	    	);
+
 
 
 }
