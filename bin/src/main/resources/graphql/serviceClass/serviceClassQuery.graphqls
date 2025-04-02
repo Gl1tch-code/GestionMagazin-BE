@@ -1,0 +1,5 @@
+extend type Query{
+  getAllServiceClasses: [ServiceClass]
+  getServiceClassById(id: ID!): ServiceClass
+  getServiceClassByNom(nom: String!): [ServiceClass]
+}

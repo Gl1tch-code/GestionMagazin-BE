@@ -4,4 +4,11 @@ extend type Query{
   getSortieByDateTimeSortie(dateTimeSortie: String!): [Sortie]
   getSortieByMotif(motif: String!): [Sortie]
   getSumQuantiteSortieThisWeek: Float
+  
+  printSortiesService(
+	   someId: ID
+	   isService: Boolean
+	   startDate: String
+	   endDate: String
+	):[PrintingSortie]
 }

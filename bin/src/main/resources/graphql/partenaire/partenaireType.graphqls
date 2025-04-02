@@ -1,0 +1,11 @@
+type Partenaire{
+    id: ID!
+	nom: String
+	ice: String
+	adresse: String
+	telephone: String
+	soldePlafond: Float
+	observation: String
+	nombreEntree: Int
+	entrees: [Entree]
+}

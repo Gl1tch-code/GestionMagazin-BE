@@ -12,3 +12,9 @@ input SortieInput {
   fonctionnaireId: ID!
   details: [DetailSortieInput!]!
 }
+
+type PrintingSortie{
+	 montant: Float
+	 fonctionnaireNom: String
+	 dateDeSortie: String
+}

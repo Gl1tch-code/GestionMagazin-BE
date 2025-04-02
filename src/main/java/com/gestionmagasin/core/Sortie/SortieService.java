@@ -147,10 +147,13 @@ public class SortieService implements SortieServiceImplementation{
 	    }
 	    return null;  // Or throw an exception if not found
 	}
-
-	public List<PrintingSortie> printSortiesService(Long serviceId, LocalDateTime start, LocalDateTime end) {
-		// TODO Auto-generated method stub
-		return null;
+	@Override
+	public List<PrintingSortie> printSortiesService(Long someId, LocalDateTime start, LocalDateTime end) {
+		return sortieRepository.findSortieDetails(start, end, someId);
+	}
+	@Override
+	public List<PrintingSortie> printSortieDivision(Long someId, LocalDateTime start, LocalDateTime end){
+		return sortieRepository.findDivisionDetails(start, end, someId);
 	}
 
 

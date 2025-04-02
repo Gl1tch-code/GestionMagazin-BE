@@ -1,0 +1,5 @@
+extend type Mutation{
+  createPartenaire(nom: String, ice: String, adresse: String, telephone: String, soldePlafond: Float, observation: String): Partenaire
+  updatePartenaire(id: ID!, nom: String, ice: String, adresse: String, telephone: String, soldePlafond: Float, observation: String): Partenaire
+  deletePartenaire(id: ID!): Partenaire
+}

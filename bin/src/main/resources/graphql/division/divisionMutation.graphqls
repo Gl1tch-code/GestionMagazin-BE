@@ -1,0 +1,5 @@
+extend type Mutation{
+	createDivision(nom: String): Division
+	updateDivision(id: ID!, nom: String): Division
+	deleteDivision(id: ID!): Division
+}

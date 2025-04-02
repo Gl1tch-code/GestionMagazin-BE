@@ -1,0 +1,5 @@
+extend type Mutation{
+    createUtilisateur(username: String, password: String, fonctionnaireId: ID!): Utilisateur
+    updateUtilisateur(id: ID!, username: String, password: String, fonctionnaireId: ID): Utilisateur
+    deleteUtilisateur(id: ID!): Utilisateur
+}

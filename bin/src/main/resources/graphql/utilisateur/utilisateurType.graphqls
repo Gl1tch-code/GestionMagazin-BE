@@ -1,0 +1,6 @@
+type Utilisateur{
+    id: ID!
+    username: String
+    password: String
+    fonctionnaire: Fonctionnaire
+}

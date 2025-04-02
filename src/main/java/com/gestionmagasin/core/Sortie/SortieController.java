@@ -54,13 +54,18 @@ public class SortieController {
 	
 	@QueryMapping
 	public List<PrintingSortie> printSortiesService(
-	    @Argument Long serviceId,
+	    @Argument Long someId,
+	    @Argument boolean isService,
 	    @Argument String startDate,
 	    @Argument String endDate
 	) {
 	    LocalDateTime start = LocalDateTime.parse(startDate);
 	    LocalDateTime end = LocalDateTime.parse(endDate);
-	    return sortieService.printSortiesService(serviceId, start, end);
+	    if(isService) {
+	        return sortieService.printSortiesService(someId, start, end);
+	    }else {
+	    	return sortieService.printSortieDivision(someId, start, end);
+	    }
 	}
 
 	/*
