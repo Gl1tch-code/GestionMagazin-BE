@@ -17,12 +17,12 @@ public interface ArticleServiceImplementation {
 	List<Article> getByUnite(String unite);
 	List<Article> getByDateAjout(LocalDateTime dateAjout);
 	
-	
-	
 	Article create(String nom, String designation, String unite, LocalDateTime dateAjout, Long categorieArticleId);
 	Article update(Long id, String nom, String designation, String unite, LocalDateTime dateAjout, Long categorieArticleId);
 	Article delete(Long id);
 
 	List<GetArticlesDTO> getArticlesDTO();
+
+	List<GetArticlesDTO> getArticlesCategorieDTO(Long categorieId, LocalDateTime startDate, LocalDateTime endDate);
 
 }

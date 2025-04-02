@@ -11,6 +11,7 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
+import com.gestionmagasin.core.DTO.PrintingEntree;
 import com.gestionmagasin.core.INPUT.EntreeInput;
 
 
@@ -71,4 +72,8 @@ public class EntreeController {
 		return entreeService.getSumQuantiteEntreeThisWeek();
 	}
 	
+	@QueryMapping
+	public List<PrintingEntree> printingEntree(@Argument Long categorieId, @Argument LocalDateTime startDate, @Argument LocalDateTime endDate) {
+		return entreeService.printingEntree(categorieId, startDate, endDate);
+	}
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.gestionmagasin.core.Article.Article;
 import com.gestionmagasin.core.Article.ArticleRepository;
+import com.gestionmagasin.core.DTO.PrintingSortie;
 import com.gestionmagasin.core.DetailSortie.DetailSortie;
 import com.gestionmagasin.core.DetailSortie.DetailSortieRepository;
 import com.gestionmagasin.core.Fonctionnaire.Fonctionnaire;
@@ -145,6 +146,11 @@ public class SortieService implements SortieServiceImplementation{
 	        return sortie;
 	    }
 	    return null;  // Or throw an exception if not found
+	}
+
+	public List<PrintingSortie> printSortiesService(Long serviceId, LocalDateTime start, LocalDateTime end) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

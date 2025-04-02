@@ -6,4 +6,5 @@ extend type Query{
 	getArticleByUnite(unite: String!): [Article]
 	getArticleByDateAjout(dateAjout: String!): [Article]
 	getArticlesDTO: [GetArticlesDTO]
+	getArticlesWithQuantiteDTO(categorieId: ID!, startDate: String!, endDate: String!): [GetArticlesDTO]
 }

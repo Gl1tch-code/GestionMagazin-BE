@@ -8,4 +8,6 @@ extend type Query{
   getEntreeByTotalTtc(prixTtc: Float!): [Entree]
   getEntreeByDesignation(designation: String!): [Entree]
   getSumQuantiteEntreeThisWeek: Float
+  
+  printingEntree(categorieId: ID, startDate: String, endDate: String): [PrintingEntree]
 }

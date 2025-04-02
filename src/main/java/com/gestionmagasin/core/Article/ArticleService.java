@@ -152,7 +152,34 @@ public class ArticleService implements ArticleServiceImplementation {
 	    return articlesDTO;
 	}
 
+	@Override
+	public List<GetArticlesDTO> getArticlesCategorieDTO(Long categorieId, LocalDateTime startDate, LocalDateTime endDate) {
+	    List<Object[]> result = articleRepository.findArticlesDTOByCategorieAndDateRange(categorieId, startDate, endDate);
+	    List<GetArticlesDTO> articlesDTO = new ArrayList<>();
 
+	    for (Object[] col : result) {
+	        Long id = col[0] instanceof Number ? ((Number) col[0]).longValue() : null;
+	        String nom = (String) col[1];
+	        String designation = (String) col[2];
+	        String unite = (String) col[3];
+
+	        LocalDateTime dateAjout = null;
+	        if (col[4] instanceof java.sql.Timestamp) {
+	            dateAjout = ((java.sql.Timestamp) col[4]).toLocalDateTime();
+	        } else if (col[4] instanceof LocalDateTime) {
+	            dateAjout = (LocalDateTime) col[4];
+	        }
+
+	        String categorieNom = (String) col[5];
+	        Long categorieIdResult = col[6] instanceof Number ? ((Number) col[6]).longValue() : null;
+	        Integer quantite = col[7] instanceof Number ? ((Number) col[7]).intValue() : null;
+
+	        GetArticlesDTO dto = new GetArticlesDTO(id, nom, designation, unite, dateAjout, quantite, categorieNom, categorieIdResult);
+	        articlesDTO.add(dto);
+	    }
+
+	    return articlesDTO;
+	}
 
 
 
