@@ -13,8 +13,8 @@ public interface SortieServiceImplementation {
 	Optional<Sortie> getById(Long id);
 	List<Sortie> getByMotif(String mot);
 	List<Sortie> getByDateTimeSortie(LocalDateTime dateTimeSortie);
-	List<PrintingSortie> printSortiesService(Long serviceId, LocalDateTime start, LocalDateTime end);
-	
+	List<PrintingSortie> printSortiesService(Long someId, LocalDateTime start, LocalDateTime end);
+	List<PrintingSortie> printSortieDivision(Long someId, LocalDateTime start, LocalDateTime end);
 	Sortie create(SortieInput sortieInput);
 	
 	Sortie update(Long id, SortieInput sortieInput);

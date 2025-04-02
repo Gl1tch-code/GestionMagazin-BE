@@ -36,7 +36,7 @@ public interface SortieRepository extends JpaRepository<Sortie, Long>{
  	List<PrintingEntree> printingEntree(@Param("categoryId") Long categoryId, 
  	                                    @Param("startDate") LocalDateTime startDate, 
  	                                    @Param("endDate") LocalDateTime endDate);
-    
+    /*
     @Query("SELECT new com.yourpackage.MontantTotalDTO(" +
     	       "    SUM(ds.quantite * de.prixUnitaire), " +
     	       "    f.nom, " +
@@ -62,6 +62,40 @@ public interface SortieRepository extends JpaRepository<Sortie, Long>{
     	    @Param("startDate") LocalDateTime startDate, 
     	    @Param("endDate") LocalDateTime endDate,
     	    @Param("serviceId") Long serviceId);
+*/
 
-
+    @Query("SELECT new com.gestionmagasin.core.DTO.PrintingSortie(" +
+            "(sd.quantite * de.prixUnitaire), " +
+            "f.nom, " +
+            "s.dateTimeSortie) " +
+            "FROM Sortie s " +
+            "JOIN s.detailSorties sd " +
+            "JOIN sd.article a " +
+            "JOIN a.detailEntrees de " +
+            "JOIN de.entree e " +
+            "JOIN s.fonctionnaire f " +
+            "WHERE e.dateTimeEntree < CURRENT_TIMESTAMP " +
+            "AND s.dateTimeSortie BETWEEN :startDate AND :endDate " +
+            "AND f.serviceClass.id = :serviceId " +
+            "ORDER BY sd.id, e.dateTimeEntree DESC")
+    List<PrintingSortie> findSortieDetails(LocalDateTime startDate, LocalDateTime endDate, Long serviceId);
+    
+    @Query("SELECT new com.gestionmagasin.core.DTO.PrintingSortie(" +
+            "(sd.quantite * de.prixUnitaire), " +
+            "f.nom, " +
+            "s.dateTimeSortie) " +
+            "FROM Sortie s " +
+            "JOIN s.detailSorties sd " +
+            "JOIN sd.article a " +
+            "JOIN a.detailEntrees de " +
+            "JOIN de.entree e " +
+            "JOIN s.fonctionnaire f " +
+            "JOIN f.serviceClass sc " +
+            "JOIN sc.division d " +
+            "WHERE e.dateTimeEntree < CURRENT_TIMESTAMP " +
+            "AND s.dateTimeSortie BETWEEN :startDate AND :endDate " +
+            "AND d.id = :divisionId " +
+            "ORDER BY sd.id, e.dateTimeEntree DESC")
+    List<PrintingSortie> findDivisionDetails(LocalDateTime startDate, LocalDateTime endDate, Long divisionId);
+    
 }
