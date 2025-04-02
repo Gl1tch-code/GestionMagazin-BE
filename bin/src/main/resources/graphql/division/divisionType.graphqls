@@ -1,5 +1,0 @@
-type Division{
-	id: ID!
-	nom: String
-	serviceClasses: [ServiceClass]
-}

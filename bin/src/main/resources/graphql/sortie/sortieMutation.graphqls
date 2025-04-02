@@ -1,5 +1,0 @@
-extend type Mutation{
-  createSortie(input: SortieInput): Sortie
-  updateSortie(id: ID!, input: SortieInput): Sortie
-  deleteSortie(id: ID!): Sortie
-}

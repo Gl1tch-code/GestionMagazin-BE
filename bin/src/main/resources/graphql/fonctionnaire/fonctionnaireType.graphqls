@@ -1,9 +1,0 @@
-type Fonctionnaire{
-	id: ID!
-	nom: String
-	prenom: String
-	grade: String
-	utilisateurs: [Utilisateur]
-	serviceClass: ServiceClass
-	sorties: [Sortie]
-}
