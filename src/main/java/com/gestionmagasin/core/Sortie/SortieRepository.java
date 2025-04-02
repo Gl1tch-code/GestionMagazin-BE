@@ -62,7 +62,7 @@ public interface SortieRepository extends JpaRepository<Sortie, Long>{
     	    @Param("startDate") LocalDateTime startDate, 
     	    @Param("endDate") LocalDateTime endDate,
     	    @Param("serviceId") Long serviceId);
-*/
+
 
     @Query("SELECT new com.gestionmagasin.core.DTO.PrintingSortie(" +
             "(sd.quantite * de.prixUnitaire), " +
@@ -97,5 +97,50 @@ public interface SortieRepository extends JpaRepository<Sortie, Long>{
             "AND d.id = :divisionId " +
             "ORDER BY sd.id, e.dateTimeEntree DESC")
     List<PrintingSortie> findDivisionDetails(LocalDateTime startDate, LocalDateTime endDate, Long divisionId);
-    
+    */
+    @Query(value = """
+            SELECT DISTINCT ON (sd.id)
+                (sd.quantite * de.prix_unitaire) AS montant,
+                f.nom AS fonctionnaireNom,
+                s.date_time_sortie AS dateDeSortie
+            FROM sortie s
+            JOIN detail_sortie sd ON s.id = sd.sortie_id
+            JOIN article a ON sd.article_id = a.id
+            JOIN detail_entree de ON a.id = de.article_id
+            JOIN entree e ON e.id = de.entree_id
+            JOIN fonctionnaire f ON f.id = s.fonctionnaire_id
+            WHERE e.date_time_entree < NOW()
+            AND s.date_time_sortie BETWEEN :startDate AND :endDate
+            AND f.service_class_id = :serviceId
+            ORDER BY sd.id, e.date_time_entree DESC
+        """, nativeQuery = true)
+        List<Object[]> findSortieDetails(
+            @Param("startDate") LocalDateTime startDate,
+            @Param("endDate") LocalDateTime endDate,
+            @Param("serviceId") Long serviceId
+        );
+
+        @Query(value = """
+            SELECT DISTINCT ON (sd.id)
+                (sd.quantite * de.prix_unitaire) AS montant,
+                f.nom AS fonctionnaireNom,
+                s.date_time_sortie AS dateDeSortie
+            FROM sortie s
+            JOIN detail_sortie sd ON s.id = sd.sortie_id
+            JOIN article a ON sd.article_id = a.id
+            JOIN detail_entree de ON a.id = de.article_id
+            JOIN entree e ON e.id = de.entree_id
+            JOIN fonctionnaire f ON f.id = s.fonctionnaire_id
+            JOIN service_class sc ON f.service_class_id = sc.id
+            JOIN division d ON d.id = sc.division_id
+            WHERE e.date_time_entree < NOW()
+            AND s.date_time_sortie BETWEEN :startDate AND :endDate
+            AND d.id = :divisionId
+            ORDER BY sd.id, e.date_time_entree DESC
+        """, nativeQuery = true)
+        List<Object[]> findDivisionDetails(
+            @Param("startDate") LocalDateTime startDate,
+            @Param("endDate") LocalDateTime endDate,
+            @Param("divisionId") Long divisionId
+        );
 }
