@@ -10,6 +10,9 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
+import com.gestionmagasin.core.DTO.GetArticlesDTO;
+import com.gestionmagasin.core.DTO.PrintingEntree;
+import com.gestionmagasin.core.DTO.PrintingSortie;
 import com.gestionmagasin.core.INPUT.SortieInput;
 
 @Controller
@@ -48,6 +51,18 @@ public class SortieController {
 	public Sortie deleteSortie(@Argument Long id) {
 		return sortieService.delete(id);
 	}
+	
+	@QueryMapping
+	public List<PrintingSortie> printSortiesService(
+	    @Argument Long serviceId,
+	    @Argument String startDate,
+	    @Argument String endDate
+	) {
+	    LocalDateTime start = LocalDateTime.parse(startDate);
+	    LocalDateTime end = LocalDateTime.parse(endDate);
+	    return sortieService.printSortiesService(serviceId, start, end);
+	}
+
 	/*
 	//
 	@QueryMapping

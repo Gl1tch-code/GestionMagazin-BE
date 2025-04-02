@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.gestionmagasin.core.Article.Article;
 import com.gestionmagasin.core.Article.ArticleRepository;
+import com.gestionmagasin.core.DTO.PrintingEntree;
 import com.gestionmagasin.core.INPUT.DetailEntreeInput;
 import com.gestionmagasin.core.DetailEntree.DetailEntree;
 import com.gestionmagasin.core.DetailEntree.DetailEntreeRepository;
@@ -217,6 +218,11 @@ public class EntreeService implements EntreeServiceImplementation {
 		return entreeRepository.findSumQuantiteEntreeThisWeek();
 	}
 	//
+
+    @Override
+    public List<PrintingEntree> printingEntree(Long categoryId, LocalDateTime startDate, LocalDateTime endDate) {
+        return entreeRepository.printingEntree(categoryId, startDate, endDate);
+    }
 
 	
 

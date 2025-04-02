@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import com.gestionmagasin.core.DTO.PrintingEntree;
 import com.gestionmagasin.core.INPUT.EntreeInput;
 
 /*
@@ -37,6 +38,8 @@ public interface EntreeServiceImplementation {
 	//
 	BigDecimal getSumQuantiteEntreeThisWeek();
 	//
+	
+	List<PrintingEntree> printingEntree(Long categoryId, LocalDateTime startDate, LocalDateTime endDate);
 
 
 

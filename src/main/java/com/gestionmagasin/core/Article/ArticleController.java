@@ -45,6 +45,16 @@ public class ArticleController {
 	public List<GetArticlesDTO> getArticlesDTO(){
 		return articleService.getArticlesDTO();
 	}
+	@QueryMapping
+	public List<GetArticlesDTO> getArticlesWithQuantiteDTO(
+	    @Argument Long categorieId,
+	    @Argument String startDate,
+	    @Argument String endDate
+	) {
+	    LocalDateTime start = LocalDateTime.parse(startDate);
+	    LocalDateTime end = LocalDateTime.parse(endDate);
+	    return articleService.getArticlesCategorieDTO(categorieId, start, end);
+	}
 
 	@MutationMapping
 	public Article createArticle(@Argument String nom, @Argument String designation, @Argument String unite, @Argument LocalDateTime dateAjout, @Argument Long categorieArticleId) {

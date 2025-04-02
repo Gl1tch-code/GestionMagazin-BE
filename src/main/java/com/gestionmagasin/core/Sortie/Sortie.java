@@ -30,6 +30,7 @@ public class Sortie {
 	
 	private LocalDateTime dateTimeSortie;
 	private String motif;
+	private Double prix;
 	
 	@ManyToOne
 	@JoinColumn(name = "fonctionnaireId", nullable = false)

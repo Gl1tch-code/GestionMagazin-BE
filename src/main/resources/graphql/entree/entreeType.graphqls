@@ -10,6 +10,17 @@ type Entree{
 	detailEntrees: [DetailEntree]
 }
 
+type PrintingEntree{
+	    id: ID
+	    numeroBand: String 
+	    dateTimeEntree: String
+	    designation: String
+	    totalHt: Float 
+	    totalTtc: Float 
+	    totalTva: Float
+	    partenaireNom: String
+}
+
 input EntreeInput {
     numeroBand: String
     dateTimeEntree: String
