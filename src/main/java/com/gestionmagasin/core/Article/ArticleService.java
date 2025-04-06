@@ -3,6 +3,7 @@ package com.gestionmagasin.core.Article;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class ArticleService implements ArticleServiceImplementation {
 	@Override
 	public List<Article> getAll() {
 		// TODO Auto-generated method stub
-		return articleRepository.findAll();
+		return articleRepository.findAllOrderByDateAjout();
 	}
 
 	@Override
@@ -51,6 +52,16 @@ public class ArticleService implements ArticleServiceImplementation {
 	public List<Article> getByDateAjout(LocalDateTime dateAjout) {
 		// TODO Auto-generated method stub
 		return articleRepository.findByDateAjout(dateAjout);
+	}
+
+	@Override
+	public Integer getCurrentStock() {
+		return articleRepository.findCurrentAvailableStock();
+	}
+
+	@Override
+	public Map<String, Integer> getEntreesAndSortiesCount() {
+		return articleRepository.findWeeklyEntreesAndSortiesCount();
 	}
 
 	@Override

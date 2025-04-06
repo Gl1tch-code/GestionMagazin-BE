@@ -48,7 +48,7 @@ public class EntreeService implements EntreeServiceImplementation {
 	@Override
 	public List<Entree> getAll() {
 		// TODO Auto-generated method stub
-		return entreeRepository.findAll();
+		return entreeRepository.findAllOrderByDateTimeEntree();
 	}
 
 	@Override

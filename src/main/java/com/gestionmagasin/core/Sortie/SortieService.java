@@ -37,7 +37,7 @@ public class SortieService implements SortieServiceImplementation{
 	
 	@Override
 	public List<Sortie> getAll() {
-		return sortieRepository.findAll();
+		return sortieRepository.findAllOrderByDateTimeSortie();
 	}
 
 	@Override
@@ -153,7 +153,7 @@ public class SortieService implements SortieServiceImplementation{
 	    List<PrintingSortie> sorties = new ArrayList<>();
 
 	    for (Object[] col : result) {
-	        Double montant = col[0] instanceof Number ? ((Number) col[0]).doubleValue() : null;
+	        Double montant = col[3] instanceof Number ? ((Number) col[3]).doubleValue() : null;
 	        String fonctionnaireNom = (String) col[1];
 
 	        LocalDateTime dateDeSortie = null;
@@ -176,7 +176,7 @@ public class SortieService implements SortieServiceImplementation{
 	    List<PrintingSortie> sorties = new ArrayList<>();
 
 	    for (Object[] col : result) {
-	        Double montant = col[0] instanceof Number ? ((Number) col[0]).doubleValue() : null;
+	        Double montant = col[3] instanceof Number ? ((Number) col[3]).doubleValue() : null;
 	        String fonctionnaireNom = (String) col[1];
 
 	        LocalDateTime dateDeSortie = null;

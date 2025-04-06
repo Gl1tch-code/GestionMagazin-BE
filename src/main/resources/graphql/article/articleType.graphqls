@@ -19,3 +19,8 @@ type GetArticlesDTO {
     categorieNom: String
     categorieId: Int
 }
+
+type EntreesSortiesCountDTO {
+    totalEntrees: Int
+    totalSorties: Int
+}

@@ -14,6 +14,8 @@ import com.gestionmagasin.core.DTO.PrintingEntree;
 import jakarta.transaction.Transactional;
 
 public interface EntreeRepository extends JpaRepository<Entree, Long>{
+	@Query("SELECT e FROM Entree e ORDER BY e.dateTimeEntree DESC")
+	List<Entree> findAllOrderByDateTimeEntree();
 	List<Entree> findByNumeroBand(String numeroBand);
 	List<Entree> findByDateTimeEntree(LocalDateTime dateTimeEntree);
 	List<Entree> findByTotalHt(Double prixTotal);
@@ -58,7 +60,7 @@ AND e.date_time_entree < '2025-02-24 00:00:01';
     	       "JOIN e.detailEntrees de " +
     	       "JOIN de.article a " +
     	       "JOIN a.categorieArticle ca " +
-    	       "WHERE ca.id = :categoryId " +
+    	       "WHERE (:categoryId IS NULL OR ca.id = :categoryId) " +
     	       "AND e.dateTimeEntree BETWEEN :startDate AND :endDate")
     	List<PrintingEntree> printingEntree(@Param("categoryId") Long categoryId, 
     	                                    @Param("startDate") LocalDateTime startDate, 

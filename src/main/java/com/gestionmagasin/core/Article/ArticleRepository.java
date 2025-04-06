@@ -2,6 +2,7 @@ package com.gestionmagasin.core.Article;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -10,10 +11,32 @@ import org.springframework.data.repository.query.Param;
 
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {
+	@Query("SELECT a FROM Article a ORDER BY a.dateAjout DESC")
+	List<Article> findAllOrderByDateAjout();
 	List<Article> findByNom(String nom);
 	List<Article> findByDesignation(String designation);
 	List<Article> findByUnite(String unite);
 	List<Article> findByDateAjout(LocalDateTime dateAjout);
+
+	@Query(value = """
+		SELECT
+			(SELECT COALESCE(SUM(quantite), 0) FROM detail_entree) -
+			(SELECT COALESCE(SUM(quantite), 0) FROM detail_sortie)""",
+		nativeQuery = true)
+	Integer findCurrentAvailableStock();
+
+	@Query(value = """
+    SELECT
+        (SELECT COUNT(*) FROM entree e
+         WHERE e.date_time_entree >= DATE_TRUNC('week', CURRENT_DATE) 
+         AND e.date_time_entree < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week') AS total_entrees,
+
+        (SELECT COUNT(*) FROM sortie s
+         WHERE s.date_time_sortie >= DATE_TRUNC('week', CURRENT_DATE) 
+         AND s.date_time_sortie < DATE_TRUNC('week', CURRENT_DATE) + INTERVAL '1 week') AS total_sorties
+	""", nativeQuery = true)
+	Map<String, Integer> findWeeklyEntreesAndSortiesCount();
+
 	
 	@Query(value = """
 	        SELECT 
@@ -107,6 +130,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	    	    @Param("startDate") LocalDateTime startDate,
 	    	    @Param("endDate") LocalDateTime endDate
 	    	);
+
 
 
 
