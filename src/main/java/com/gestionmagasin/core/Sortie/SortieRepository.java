@@ -12,6 +12,8 @@ import com.gestionmagasin.core.DTO.PrintingEntree;
 import com.gestionmagasin.core.DTO.PrintingSortie;
 
 public interface SortieRepository extends JpaRepository<Sortie, Long>{
+	@Query("SELECT s FROM Sortie s ORDER BY s.dateTimeSortie DESC")
+	List<Sortie> findAllOrderByDateTimeSortie();
 	List<Sortie> findByMotif(String motif);
 	List<Sortie> findByDateTimeSortie(LocalDateTime dateTimeSortie);
 	
@@ -62,7 +64,7 @@ public interface SortieRepository extends JpaRepository<Sortie, Long>{
     	    @Param("startDate") LocalDateTime startDate, 
     	    @Param("endDate") LocalDateTime endDate,
     	    @Param("serviceId") Long serviceId);
-*/
+
 
     @Query("SELECT new com.gestionmagasin.core.DTO.PrintingSortie(" +
             "(sd.quantite * de.prixUnitaire), " +
@@ -97,5 +99,70 @@ public interface SortieRepository extends JpaRepository<Sortie, Long>{
             "AND d.id = :divisionId " +
             "ORDER BY sd.id, e.dateTimeEntree DESC")
     List<PrintingSortie> findDivisionDetails(LocalDateTime startDate, LocalDateTime endDate, Long divisionId);
-    
+    */
+    @Query(value = """
+		WITH latest_prices AS (
+			SELECT DISTINCT ON (de.article_id, s.id)
+				s.id AS sortie_id,
+				de.article_id,
+				de.prix_unitaire
+			FROM sortie s
+					 JOIN detail_sortie sd ON s.id = sd.sortie_id
+					 JOIN detail_entree de ON sd.article_id = de.article_id
+					 JOIN entree e ON de.entree_id = e.id
+			WHERE e.date_time_entree < s.date_time_sortie
+			ORDER BY de.article_id, s.id, e.date_time_entree DESC
+		)
+		SELECT
+			s.id AS sortieId,
+			f.nom AS fonctionnaireNom,
+			s.date_time_sortie AS dateDeSortie,
+			SUM(sd.quantite * lp.prix_unitaire) AS montant_total
+		FROM sortie s
+				 JOIN detail_sortie sd ON s.id = sd.sortie_id
+				 JOIN latest_prices lp ON sd.article_id = lp.article_id AND s.id = lp.sortie_id
+				 JOIN fonctionnaire f ON f.id = s.fonctionnaire_id
+		WHERE s.date_time_sortie BETWEEN :startDate AND :endDate
+		  AND (:serviceId IS NULL OR f.service_class_id = :serviceId)
+		GROUP BY s.id, f.nom, s.date_time_sortie
+		ORDER BY s.date_time_sortie DESC""", nativeQuery = true)
+        List<Object[]> findSortieDetails(
+            @Param("startDate") LocalDateTime startDate,
+            @Param("endDate") LocalDateTime endDate,
+            @Param("serviceId") Long serviceId
+        );
+
+        @Query(value = """
+			WITH latest_prices AS (
+				SELECT DISTINCT ON (de.article_id, s.id)
+					s.id AS sortie_id,
+					de.article_id,
+					de.prix_unitaire
+				FROM sortie s
+						 JOIN detail_sortie sd ON s.id = sd.sortie_id
+						 JOIN detail_entree de ON sd.article_id = de.article_id
+						 JOIN entree e ON de.entree_id = e.id
+				WHERE e.date_time_entree < s.date_time_sortie
+				ORDER BY de.article_id, s.id, e.date_time_entree DESC
+			)
+			SELECT
+				s.id AS sortieId,
+				f.nom AS fonctionnaireNom,
+				s.date_time_sortie AS dateDeSortie,
+				SUM(sd.quantite * lp.prix_unitaire) AS montant_total
+			FROM sortie s
+					 JOIN detail_sortie sd ON s.id = sd.sortie_id
+					 JOIN latest_prices lp ON sd.article_id = lp.article_id AND s.id = lp.sortie_id
+					 JOIN fonctionnaire f ON f.id = s.fonctionnaire_id
+					 JOIN service_class sc ON f.service_class_id = sc.id
+					 JOIN division d ON d.id = sc.division_id
+			WHERE s.date_time_sortie BETWEEN :startDate AND :endDate
+			  AND (:divisionId IS NULL OR d.id = :divisionId)
+			GROUP BY s.id, f.nom, s.date_time_sortie
+			ORDER BY s.date_time_sortie DESC""", nativeQuery = true)
+        List<Object[]> findDivisionDetails(
+            @Param("startDate") LocalDateTime startDate,
+            @Param("endDate") LocalDateTime endDate,
+            @Param("divisionId") Long divisionId
+        );
 }

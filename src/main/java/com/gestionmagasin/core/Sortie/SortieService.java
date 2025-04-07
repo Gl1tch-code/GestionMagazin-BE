@@ -37,7 +37,7 @@ public class SortieService implements SortieServiceImplementation{
 	
 	@Override
 	public List<Sortie> getAll() {
-		return sortieRepository.findAll();
+		return sortieRepository.findAllOrderByDateTimeSortie();
 	}
 
 	@Override
@@ -149,12 +149,50 @@ public class SortieService implements SortieServiceImplementation{
 	}
 	@Override
 	public List<PrintingSortie> printSortiesService(Long someId, LocalDateTime start, LocalDateTime end) {
-		return sortieRepository.findSortieDetails(start, end, someId);
+	    List<Object[]> result = sortieRepository.findSortieDetails(start, end, someId);
+	    List<PrintingSortie> sorties = new ArrayList<>();
+
+	    for (Object[] col : result) {
+	        Double montant = col[3] instanceof Number ? ((Number) col[3]).doubleValue() : null;
+	        String fonctionnaireNom = (String) col[1];
+
+	        LocalDateTime dateDeSortie = null;
+	        if (col[2] instanceof java.sql.Timestamp) {
+	            dateDeSortie = ((java.sql.Timestamp) col[2]).toLocalDateTime();
+	        } else if (col[2] instanceof LocalDateTime) {
+	            dateDeSortie = (LocalDateTime) col[2];
+	        }
+
+	        PrintingSortie sortie = new PrintingSortie(montant, fonctionnaireNom, dateDeSortie);
+	        sorties.add(sortie);
+	    }
+
+	    return sorties;
 	}
+
 	@Override
-	public List<PrintingSortie> printSortieDivision(Long someId, LocalDateTime start, LocalDateTime end){
-		return sortieRepository.findDivisionDetails(start, end, someId);
+	public List<PrintingSortie> printSortieDivision(Long someId, LocalDateTime start, LocalDateTime end) {
+	    List<Object[]> result = sortieRepository.findDivisionDetails(start, end, someId);
+	    List<PrintingSortie> sorties = new ArrayList<>();
+
+	    for (Object[] col : result) {
+	        Double montant = col[3] instanceof Number ? ((Number) col[3]).doubleValue() : null;
+	        String fonctionnaireNom = (String) col[1];
+
+	        LocalDateTime dateDeSortie = null;
+	        if (col[2] instanceof java.sql.Timestamp) {
+	            dateDeSortie = ((java.sql.Timestamp) col[2]).toLocalDateTime();
+	        } else if (col[2] instanceof LocalDateTime) {
+	            dateDeSortie = (LocalDateTime) col[2];
+	        }
+
+	        PrintingSortie sortie = new PrintingSortie(montant, fonctionnaireNom, dateDeSortie);
+	        sorties.add(sortie);
+	    }
+
+	    return sorties;
 	}
+
 
 
 /*

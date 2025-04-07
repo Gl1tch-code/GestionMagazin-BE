@@ -7,4 +7,6 @@ extend type Query{
 	getArticleByDateAjout(dateAjout: String!): [Article]
 	getArticlesDTO: [GetArticlesDTO]
 	getArticlesWithQuantiteDTO(categorieId: ID!, startDate: String!, endDate: String!): [GetArticlesDTO]
+    getCurrentStock: Int
+    getEntreesAndSortiesCount: EntreesSortiesCountDTO
 }

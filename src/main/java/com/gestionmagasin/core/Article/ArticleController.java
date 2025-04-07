@@ -2,6 +2,7 @@ package com.gestionmagasin.core.Article;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,15 @@ public class ArticleController {
 	@QueryMapping
 	public List<Article> getArticleByDesignation(@Argument String designation) {
 		return articleService.getByNom(designation);
+	}
+
+	@QueryMapping
+	public Integer getCurrentStock() {
+		return articleService.getCurrentStock();
+	}
+	@QueryMapping
+	public Map<String, Integer> getEntreesAndSortiesCount() {
+		return articleService.getEntreesAndSortiesCount();
 	}
 
 	@QueryMapping
