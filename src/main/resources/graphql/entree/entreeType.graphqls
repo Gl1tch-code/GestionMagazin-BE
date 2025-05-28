@@ -2,9 +2,7 @@ type Entree{
 	id: ID!
 	numeroBand: String
 	dateTimeEntree: String
-	totalHt: Float
-	totalTva: Float
-	totalTtc: Float
+	totalPrix: Float
 	designation: String
 	partenaire: Partenaire
 	detailEntrees: [DetailEntree]
@@ -15,9 +13,7 @@ type PrintingEntree{
 	    numeroBand: String 
 	    dateTimeEntree: String
 	    designation: String
-	    totalHt: Float 
-	    totalTtc: Float 
-	    totalTva: Float
+	    totalPrix: Float
 	    partenaireNom: String
 }
 
@@ -25,9 +21,7 @@ input EntreeInput {
     numeroBand: String
     dateTimeEntree: String
     designation: String
-    totalHt: Float
-    totalTva: Float
-    totalTtc: Float
+	totalPrix: Float
     partenaireId: ID!
     details: [DetailEntreeInput]
     filesIds: [String]

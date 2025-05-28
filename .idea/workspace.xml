@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="085f3edb-e7e6-485a-8687-57bab44ac464" name="Changes" comment="fix commit" />
+    <list default="true" id="085f3edb-e7e6-485a-8687-57bab44ac464" name="Changes" comment="fix commit">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/Entree/Entree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/Entree/Entree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/Entree/EntreeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/Entree/EntreeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/Entree/EntreeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/Entree/EntreeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/Entree/EntreeServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/Entree/EntreeServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/INPUT/EntreeInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gestionmagasin/core/INPUT/EntreeInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/entree/entreeQuery.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/entree/entreeQuery.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/entree/entreeType.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/entree/entreeType.graphqls" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,25 +31,25 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2v9WGcRq9l8yn7mY3vELeynjWNJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CoreApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.core [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;yassin-fisrt-push&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Creep/Desktop/GestionMagazin-BE-main&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CoreApplication.executor": "Run",
+    "Maven.core [clean,install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/creep/Documents/GitHub/GestionMagazin-BE",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="CoreApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gestionmagasin.core.CoreApplication" />

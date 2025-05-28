@@ -70,24 +70,6 @@ public class EntreeService implements EntreeServiceImplementation {
 	}
 
 	@Override
-	public List<Entree> getByTotalHt(Double totalHt) {
-		// TODO Auto-generated method stub
-		return entreeRepository.findByTotalHt(totalHt);
-	}
-
-	@Override
-	public List<Entree> getByTotalTva(Double totalTva) {
-		// TODO Auto-generated method stub
-		return entreeRepository.findByTotalTva(totalTva);
-	}
-
-	@Override
-	public List<Entree> getByTotalTtc(Double totalTtc) {
-		// TODO Auto-generated method stub
-		return entreeRepository.findByTotalTtc(totalTtc);
-	}
-
-	@Override
 	public List<Entree> getByDesignation(String designation) {
 		// TODO Auto-generated method stub
 		return entreeRepository.findByDesignation(designation);
@@ -103,9 +85,7 @@ public class EntreeService implements EntreeServiceImplementation {
         entree.setNumeroBand(entreeInput.numeroBand());
         entree.setDateTimeEntree(entreeInput.dateTimeEntree());
         entree.setDesignation(entreeInput.designation());
-        entree.setTotalHt(entreeInput.totalHt());
-        entree.setTotalTva(entreeInput.totalTva());
-        entree.setTotalTtc(entreeInput.totalTtc());
+        entree.setTotalPrix(entreeInput.totalPrix());
 
         if (entreeInput.partenaireId() != null) {
             Partenaire partenaire = partenaireRepository.findById(entreeInput.partenaireId())
@@ -161,9 +141,7 @@ public class EntreeService implements EntreeServiceImplementation {
         entree.setNumeroBand(entreeInput.numeroBand());
         entree.setDateTimeEntree(entreeInput.dateTimeEntree());
         entree.setDesignation(entreeInput.designation());
-        entree.setTotalHt(entreeInput.totalHt());
-        entree.setTotalTva(entreeInput.totalTva());
-        entree.setTotalTtc(entreeInput.totalTtc());
+        entree.setTotalPrix(entreeInput.totalPrix());
 
         if (entreeInput.partenaireId() != null) {
             Partenaire partenaire = partenaireRepository.findById(entreeInput.partenaireId())

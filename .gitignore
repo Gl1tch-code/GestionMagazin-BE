@@ -5,6 +5,7 @@ target/
 target/*
 /target
 src/main/resources/application-local.properties
+src/main/resources/application-local.yml
 bin/**
 /.settings/**
 /.idea/**
