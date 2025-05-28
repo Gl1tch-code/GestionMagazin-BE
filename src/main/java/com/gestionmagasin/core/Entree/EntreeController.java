@@ -36,18 +36,6 @@ public class EntreeController {
 		return entreeService.getByDateTimeEntree(dateTimeEntree);
 	}
 	@QueryMapping
-	public List<Entree> getEntreeByTotalHt(@Argument Double totalHT) {
-		return entreeService.getByTotalHt(totalHT);
-	}
-	@QueryMapping
-	public List<Entree> getEntreeByTotalTva(@Argument Double totalTva) {
-		return entreeService.getByTotalTva(totalTva);
-	}
-	@QueryMapping
-	public List<Entree> getEntreeByTotalTtc(@Argument Double totalTtc) {
-		return entreeService.getByTotalTtc(totalTtc);
-	}
-	@QueryMapping
 	public List<Entree> getEntreeByDesignation(@Argument String designation) {
 		return entreeService.getByDesignation(designation);
 	}

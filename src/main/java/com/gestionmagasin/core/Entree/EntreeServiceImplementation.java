@@ -24,9 +24,6 @@ public interface EntreeServiceImplementation {
 	Optional<Entree> getById(Long id);
 	List<Entree> getByNumeroBand(String numeroBand);
 	List<Entree> getByDateTimeEntree(LocalDateTime dateTimeEntree);
-	List<Entree> getByTotalHt(Double totalHt);
-	List<Entree> getByTotalTva(Double totalTva);
-	List<Entree> getByTotalTtc(Double totalTtc);
 	List<Entree> getByDesignation(String designation);
 	
 	Entree create(EntreeInput entreeInput);

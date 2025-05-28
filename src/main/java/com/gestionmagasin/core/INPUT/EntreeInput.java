@@ -8,9 +8,7 @@ public record EntreeInput(
 	    String numeroBand,
 	    LocalDateTime dateTimeEntree,
 	    String designation,
-	    Double totalHt,
-	    Double totalTva,
-	    Double totalTtc,
+	    Double totalPrix,
 	    Long partenaireId, // Reference to Partenaire
 	    List<DetailEntreeInput> details,
 		List<String> filesIds)

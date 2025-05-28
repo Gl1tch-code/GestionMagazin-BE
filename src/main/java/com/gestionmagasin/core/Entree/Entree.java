@@ -27,9 +27,7 @@ public class Entree {
 	private String numeroBand;
 	private LocalDateTime dateTimeEntree;
 	private String designation;
-	private Double totalHt;
-	private Double totalTva;
-	private Double totalTtc;
+	private Double totalPrix;
 
 	@ManyToOne
 	@JoinColumn(name = "partenaireId", nullable = false)
