@@ -27,7 +27,7 @@ public interface SortieRepository extends JpaRepository<Sortie, Long>{
     //
     
     @Query("SELECT new com.gestionmagasin.core.DTO.PrintingEntree(e.id, e.numeroBand, e.dateTimeEntree, " +
- 	       "e.designation, e.totalHt, e.totalTtc, e.totalTva, p.nom) " +
+ 	       "e.designation, e.totalPrix, p.nom) " +
  	       "FROM Entree e " +
  	       "JOIN e.partenaire p " +
  	       "JOIN e.detailEntrees de " +

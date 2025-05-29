@@ -3,6 +3,7 @@ package com.gestionmagasin.core.Service;
 
 import java.util.List;
 
+import com.gestionmagasin.core.Bureau.Bureau;
 import com.gestionmagasin.core.Division.Division;
 import com.gestionmagasin.core.Fonctionnaire.Fonctionnaire;
 
@@ -33,7 +34,7 @@ public class ServiceClass {
 	@ManyToOne
 	@JoinColumn(name = "divisionId", nullable = false)
 	private Division division;
-	
+
 	@OneToMany(mappedBy = "serviceClass",cascade = CascadeType.REMOVE, orphanRemoval = true)
-	private List<Fonctionnaire> fonctionnaires;
+	private List<Bureau> bureaus;
 }

@@ -1,0 +1,6 @@
+extend type Query{
+getAll : [Bureau]
+getById(id: ID!) : Bureau
+getByNom(nom: String!) : [Bureau]
+getByServiceId(serviceClass : ID!) : [Bureau]
+}

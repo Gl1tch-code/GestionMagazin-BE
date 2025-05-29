@@ -18,9 +18,6 @@ public interface EntreeRepository extends JpaRepository<Entree, Long>{
 	List<Entree> findAllOrderByDateTimeEntree();
 	List<Entree> findByNumeroBand(String numeroBand);
 	List<Entree> findByDateTimeEntree(LocalDateTime dateTimeEntree);
-	List<Entree> findByTotalHt(Double prixTotal);
-	List<Entree> findByTotalTva(Double tva);
-	List<Entree> findByTotalTtc(Double prixTtc);
 	List<Entree> findByDesignation(String designation);
 	//
     @Query(value = "SELECT SUM(de.quantite) FROM detail_entree de " +
@@ -54,7 +51,7 @@ AND e.date_time_entree < '2025-02-24 00:00:01';
      * */
     
     @Query("SELECT new com.gestionmagasin.core.DTO.PrintingEntree(e.id, e.numeroBand, e.dateTimeEntree, " +
-    	       "e.designation, e.totalHt, e.totalTtc, e.totalTva, p.nom) " +
+    	       "e.designation, e.totalPrix, p.nom) " +
     	       "FROM Entree e " +
     	       "JOIN e.partenaire p " +
     	       "JOIN e.detailEntrees de " +

@@ -27,7 +27,6 @@ public class DetailSortie {
 	
 	private Integer quantite;
 	private String filePathBand; // remove
-	private Double tva; // remove
 	
 	@ManyToOne
 	@JoinColumn(name = "sortieId", nullable = false)

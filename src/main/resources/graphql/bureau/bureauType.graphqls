@@ -1,0 +1,6 @@
+type Bureau{
+    id: ID!
+    nom: String
+    fonctionnaires : [Fonctionnaire]
+    serviceClass: ServiceClass
+}

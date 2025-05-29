@@ -100,7 +100,6 @@ public class EntreeService implements EntreeServiceImplementation {
             DetailEntree detail = new DetailEntree();
             detail.setPrixUnitaire(detailInput.prixUnitaire());
             detail.setQuantite(detailInput.quantite());
-            detail.setTva(detailInput.tva());
             detail.setEntree(finalEntree);  // Link the detail to the entree
 
             if (detailInput.articleId() != null) {
@@ -158,7 +157,6 @@ public class EntreeService implements EntreeServiceImplementation {
             DetailEntree detail = new DetailEntree();
             detail.setPrixUnitaire(detailInput.prixUnitaire());
             detail.setQuantite(detailInput.quantite());
-            detail.setTva(detailInput.tva());
             detail.setEntree(entree);
 
             if (detailInput.articleId() != null) {

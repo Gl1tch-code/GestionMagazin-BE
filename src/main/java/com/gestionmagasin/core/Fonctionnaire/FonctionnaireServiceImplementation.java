@@ -12,8 +12,8 @@ public interface FonctionnaireServiceImplementation {
     List<Fonctionnaire> getBynom(String nom);
     List<Fonctionnaire> getByPrenom(String prenom);
     List<Fonctionnaire> getBygrade(String grade);
-    
-    Fonctionnaire create(String nom, String prenom, String grade, Long serviceClassId);
-    Fonctionnaire update(Long id, String nom, String prenom, String grade, Long serviceClassId);
+
+    Fonctionnaire create(String nom, String prenom, String grade, Long bureauId);
+    Fonctionnaire update(Long id, String nom, String prenom, String grade, Long bureauId);
     Fonctionnaire delete(Long id);
 }

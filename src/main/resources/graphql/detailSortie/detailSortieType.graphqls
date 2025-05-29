@@ -2,7 +2,6 @@ type DetailSortie{
 	id: ID!
 	quantite: Int
 	filePathBand: String
-	tva: Float
 	sortie: Sortie
 	article: Article
 }
@@ -10,6 +9,5 @@ type DetailSortie{
 input DetailSortieInput {
   quantite: Int!
   filePathBand: String
-  tva: Float
   articleId: ID!
 }

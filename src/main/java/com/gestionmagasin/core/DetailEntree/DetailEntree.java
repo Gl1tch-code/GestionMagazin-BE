@@ -26,7 +26,6 @@ public class DetailEntree {
 	private Double prixUnitaire;
 	private Integer quantite;
 	private String filePathBand;  // remove
-	private Double tva;
 	// Prix unitaire
 	
 	@ManyToOne

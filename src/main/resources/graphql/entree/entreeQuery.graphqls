@@ -1,4 +1,4 @@
-<extend type Query{
+extend type Query{
   getAllEntrees: [Entree]
   getEntreeById(id: ID!): Entree
   getEntreeByNumeroBand(numeroBand: String!): [Entree]
