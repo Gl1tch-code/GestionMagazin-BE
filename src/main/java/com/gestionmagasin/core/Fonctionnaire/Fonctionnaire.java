@@ -3,6 +3,7 @@ package com.gestionmagasin.core.Fonctionnaire;
 
 import java.util.List;
 
+import com.gestionmagasin.core.Bureau.Bureau;
 import com.gestionmagasin.core.Service.ServiceClass;
 import com.gestionmagasin.core.Sortie.Sortie;
 import com.gestionmagasin.core.Utilisateur.Utilisateur;
@@ -38,8 +39,8 @@ public class Fonctionnaire {
 	private List<Utilisateur> utilisateurs;
     
     @ManyToOne
-    @JoinColumn(name = "serviceClassId", nullable = false)
-    private ServiceClass serviceClass;
+    @JoinColumn(name = "bureauId", nullable = false)
+    private Bureau bureau;
     
     @OneToMany(mappedBy = "fonctionnaire",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Sortie> sorties;

@@ -7,8 +7,6 @@ public record PrintingEntree(
 	    String numeroBand, 
 	    LocalDateTime dateTimeEntree, 
 	    String designation, 
-	    Double totalHt, 
-	    Double totalTtc, 
-	    Double totalTva,
+	    Double totalPrix,
 	    String partenaireNom
 	) {}

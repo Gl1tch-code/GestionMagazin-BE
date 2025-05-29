@@ -31,10 +31,6 @@ public class DetailEntreeController {
 		return detailEntreeService.getByFilePathBand(filePathBand);
 	}
 	@QueryMapping
-	public List<DetailEntree> getDetailEntreeByTva(@Argument Double tva){
-		return detailEntreeService.getByTva(tva);
-	}
-	@QueryMapping
 	public List<DetailEntree> getDetailEntreeByPrixUnitaire(@Argument Double prixUnitaire){
 		return detailEntreeService.getByPrixUnitaire(prixUnitaire);
 	}

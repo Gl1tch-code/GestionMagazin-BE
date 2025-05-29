@@ -1,6 +1,6 @@
 extend type Mutation{
-  createFonctionnaire(nom: String, prenom: String, grade: String, serviceClassId: ID!): Fonctionnaire
-  updateFonctionnaire(id: ID!, nom: String, prenom: String, grade: String, serviceClassId: ID): Fonctionnaire
+  createFonctionnaire(nom: String, prenom: String, grade: String, bureauId: ID!): Fonctionnaire
+  updateFonctionnaire(id: ID!, nom: String, prenom: String, grade: String, bureauId: ID): Fonctionnaire
   deleteFonctionnaire(id: ID!): Fonctionnaire
 
 }

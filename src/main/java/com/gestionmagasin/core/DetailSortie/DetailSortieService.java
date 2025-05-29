@@ -40,16 +40,10 @@ public class DetailSortieService implements DetailSortieServiceImplementation {
 	}
 
 	@Override
-	public List<DetailSortie> getByTva(Double tva) {
-		// TODO Auto-generated method stub
-		return detailSortieRepository.findByTva(tva);
-	}
-	@Override
-	public DetailSortie create(Integer quantite, String filePathBand, Double tva, Long sortieId, Long articleId) {
+	public DetailSortie create(Integer quantite, String filePathBand, Long sortieId, Long articleId) {
 		DetailSortie detailSortie = new DetailSortie();
 		detailSortie.setQuantite(quantite);
 		detailSortie.setFilePathBand(filePathBand);
-		detailSortie.setTva(tva);
 		
 		Sortie sortie = new Sortie();
 		sortie.setId(sortieId);
@@ -63,7 +57,7 @@ public class DetailSortieService implements DetailSortieServiceImplementation {
 	}
 
 	@Override
-	public DetailSortie update(Long id, Integer quantite, String filePathBand, Double tva, Long sortieId, Long articleId) {
+	public DetailSortie update(Long id, Integer quantite, String filePathBand, Long sortieId, Long articleId) {
 		Optional<DetailSortie> detailSortieOptional = detailSortieRepository.findById(id);
 		if(detailSortieOptional.isPresent()) {
 			DetailSortie detailSortie = detailSortieOptional.get();
@@ -72,9 +66,6 @@ public class DetailSortieService implements DetailSortieServiceImplementation {
 			}
 			if(filePathBand != null) {
 				detailSortie.setFilePathBand(filePathBand);
-			}
-			if(tva != null) {
-				detailSortie.setTva(tva);
 			}
 			if(sortieId != null) {
 				Sortie sortie = new Sortie();

@@ -3,6 +3,7 @@ package com.gestionmagasin.core.Fonctionnaire;
 import java.util.List;
 import java.util.Optional;
 
+import com.gestionmagasin.core.Bureau.Bureau;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,21 +41,21 @@ public class FonctionnaireService implements FonctionnaireServiceImplementation{
 	}
 
 	@Override
-	public Fonctionnaire create(String nom, String prenom, String grade, Long serviceClassId) {
+	public Fonctionnaire create(String nom, String prenom, String grade, Long bureauId) {
 		Fonctionnaire fonctionnaire = new Fonctionnaire();
 		fonctionnaire.setNom(nom);
 		fonctionnaire.setPrenom(prenom);
 		fonctionnaire.setGrade(grade);
 		
-		ServiceClass serviceClass = new ServiceClass();
-		serviceClass.setId(serviceClassId);
+		Bureau bureau = new Bureau();
+		bureau.setId(bureauId);
 		
-		fonctionnaire.setServiceClass(serviceClass);
+		fonctionnaire.setBureau(bureau);
 		return fonctionnaireRepository.save(fonctionnaire);
 	}
 
 	@Override
-	public Fonctionnaire update(Long id, String nom, String prenom, String grade, Long serviceClassId) {
+	public Fonctionnaire update(Long id, String nom, String prenom, String grade, Long bureauId) {
 		Optional<Fonctionnaire> fonctionnaireOptional = fonctionnaireRepository.findById(id);
 		if(fonctionnaireOptional.isPresent()) {
 			Fonctionnaire fonctionnaire = new Fonctionnaire();
@@ -70,11 +71,11 @@ public class FonctionnaireService implements FonctionnaireServiceImplementation{
 				fonctionnaire.setGrade(grade);
 			}
 			
-			if(serviceClassId != null) {
-				ServiceClass serviceClass = new ServiceClass();
-				serviceClass.setId(serviceClassId);
+			if(bureauId != null) {
+				Bureau bureau = new Bureau();
+				bureau.setId(bureauId);
 				
-				fonctionnaire.setServiceClass(serviceClass);
+				fonctionnaire.setBureau(bureau);
 			}
 			return fonctionnaireRepository.save(fonctionnaire);
 		}

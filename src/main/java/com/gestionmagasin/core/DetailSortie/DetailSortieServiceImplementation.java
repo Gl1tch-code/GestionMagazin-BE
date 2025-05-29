@@ -11,10 +11,9 @@ public interface DetailSortieServiceImplementation {
 	Optional<DetailSortie> getById(Long id);
 	List<DetailSortie> getByQuantite(Integer quantite);
 	List<DetailSortie> getByFilePathBand(String filePathBand);
-	List<DetailSortie> getByTva(Double tva);
 	
-	DetailSortie create(Integer quantite, String filePathBand, Double tva, Long sortieId, Long articleId);
-	DetailSortie update(Long id, Integer quantite, String filePathBand, Double tva, Long sortieId, Long articleId);
+	DetailSortie create(Integer quantite, String filePathBand, Long sortieId, Long articleId);
+	DetailSortie update(Long id, Integer quantite, String filePathBand, Long sortieId, Long articleId);
 	DetailSortie delete(Long id);
 	
 

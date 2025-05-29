@@ -36,12 +36,12 @@ public class FonctionnaireController {
 		return fonctionnaireService.getBygrade(grade);
 	}
 	@MutationMapping
-	public Fonctionnaire createFonctionnaire(@Argument String nom, @Argument String prenom, @Argument String grade, @Argument Long serviceClassId) {
-		return fonctionnaireService.create(nom, prenom, grade, serviceClassId);
+	public Fonctionnaire createFonctionnaire(@Argument String nom, @Argument String prenom, @Argument String grade, @Argument Long bureauId) {
+		return fonctionnaireService.create(nom, prenom, grade, bureauId);
 	}
 	@MutationMapping
-	public Fonctionnaire updateFonctionnaire(@Argument Long id, @Argument String nom, @Argument String prenom, @Argument String grade, @Argument Long serviceClassId) {
-		return fonctionnaireService.update(id, nom, prenom, grade, serviceClassId);
+	public Fonctionnaire updateFonctionnaire(@Argument Long id, @Argument String nom, @Argument String prenom, @Argument String grade, @Argument Long bureauId) {
+		return fonctionnaireService.update(id, nom, prenom, grade, bureauId);
 	}
 	@MutationMapping
 	public Fonctionnaire deleteFonctionnaire(@Argument Long id) {

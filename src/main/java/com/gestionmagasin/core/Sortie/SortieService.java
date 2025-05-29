@@ -75,7 +75,6 @@ public class SortieService implements SortieServiceImplementation{
             DetailSortie detailSortie = new DetailSortie();
             detailSortie.setQuantite(detailInput.quantite());
             detailSortie.setFilePathBand(detailInput.filePathBand());
-            detailSortie.setTva(detailInput.tva());
             detailSortie.setSortie(sortie);
 
             if (detailInput.articleId() != null) {
@@ -115,7 +114,6 @@ public class SortieService implements SortieServiceImplementation{
 	        DetailSortie detail = new DetailSortie();
 	        detail.setQuantite(detailInput.quantite());
 	        detail.setFilePathBand(detailInput.filePathBand());
-	        detail.setTva(detailInput.tva());
 	        detail.setSortie(sortie);
 
 	        if (detailInput.articleId() != null) {

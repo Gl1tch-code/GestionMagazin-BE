@@ -4,6 +4,6 @@ type Fonctionnaire{
 	prenom: String
 	grade: String
 	utilisateurs: [Utilisateur]
-	serviceClass: ServiceClass
+	bureau : Bureau
 	sorties: [Sortie]
 }

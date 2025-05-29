@@ -30,9 +30,5 @@ public class DetailSortieController {
 	public List<DetailSortie> getDetailSortieByFilePathband(@Argument String filePathBand){
 		return detailSortieService.getByFilePathBand(filePathBand);
 	}
-	@QueryMapping
-	public List<DetailSortie> getDetailSortieByTva(@Argument Double tva){
-		return detailSortieService.getByTva(tva);
-	}
 	
 }

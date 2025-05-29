@@ -3,4 +3,5 @@ type ServiceClass{
     nom: String
     division: Division
     fonctionnaires: [Fonctionnaire]
+    bureaus : [Bureau]
 }
